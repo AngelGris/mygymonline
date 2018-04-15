@@ -1,0 +1,112 @@
+html,
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/**
+ * Header
+ */
+.main-header {
+    background-color: rgba(41, 44, 49, 0.95);
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    left: 0;
+    padding: 10px;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+ul.header-links {
+    list-style: none;
+}
+
+ul.header-links li {
+    float: right;
+    margin-left: 20px;
+    text-align: center;
+}
+
+ul.header-links li a {
+    color: #ccc;
+}
+
+ul.header-links li a:hover {
+    color: #fff;
+}
+
+/**
+ * Main wrapper
+ */
+.main-wrapper {
+    padding: 10px;
+}
+
+/**
+ * H1 in each page
+ */
+h1 {
+    font-size: 36px;
+}
+
+h1 span {
+    margin-right: 10px;
+}
+
+/**
+ * Zebra lists
+ */
+.zebra {
+    background-color: #ddd;
+    line-height: 38px;
+    padding: 5px;
+}
+
+.zebra:nth-child(even) {
+    background-color: #eee;
+}
+
+/**
+ * Navigation bars
+ */
+nav {
+    margin: 10px 0;
+}
+
+/**
+ * Days in plans
+ */
+#modal-days .card-body ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/**
+ * Loading overlay
+ */
+#overlay-loading {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    top:0;
+    width: 100%;
+    z-index: 9999;
+}
+
+#overlay-loading div {
+    color:#fff;
+    display: flex;
+    margin: 0 auto;
+}
+
+#overlay-loading div img {
+    width: 80px;
+}
