@@ -61,7 +61,7 @@ $(function() {
         if (!error) {
             showLoader();
             $.ajax({
-                method: (plan_id == 0 ? 'POST' : 'PATCH'),
+                method: 'POST',
                 url: '/api/plan',
                 dataType: 'json',
                 data: {
