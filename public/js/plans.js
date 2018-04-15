@@ -61,7 +61,7 @@ $(function() {
         if (!error) {
             showLoader();
             $.ajax({
-                method: 'POST',
+                method: (plan_id == 0 ? 'POST' : 'PATCH'),
                 url: '/api/plan',
                 dataType: 'json',
                 data: {
@@ -99,7 +99,7 @@ $(function() {
         if (!error) {
             showLoader();
             $.ajax({
-                method: (day_id == 0 ? 'POST' : 'PATCH'),
+                method: 'POST',
                 url: '/api/plan/day',
                 dataType: 'json',
                 data: {
