@@ -14,4 +14,12 @@ class Plan extends Model
     protected $fillable = [
         'name'
     ];
+
+    /**
+     * Users for the plan
+     */
+    function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

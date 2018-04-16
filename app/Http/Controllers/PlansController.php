@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Email;
 use App\Exercise;
 use App\Plan;
 
@@ -88,6 +89,9 @@ class PlansController extends Controller
         $plan = Plan::find($request->input('id'));
         $plan->name   = $request->input('name');
         $plan->save();
+
+        // Queue mail
+        Email::createPlanUpdated($plan->id);
 
         return response()->json($plan, 200);
     }

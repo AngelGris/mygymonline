@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Day;
+use App\Email;
 
 class ExercisesController extends Controller
 {
@@ -27,6 +28,9 @@ class ExercisesController extends Controller
         // Data is valid
         $day = Day::find($request->input('day_id'));
         $day->exercises()->detach($request->input('exercise_id'));
+
+        // Queue mail
+        Email::createPlanUpdated($day->plan->id);
 
         return response()->json([], 200);
     }
@@ -51,6 +55,9 @@ class ExercisesController extends Controller
         // Data is valid
         $day = Day::find($request->input('day_id'));
         $day->exercises()->attach($request->input('exercises'));
+
+        // Queue mail
+        Email::createPlanUpdated($day->plan->id);
 
         return response()->json([], 200);
     }

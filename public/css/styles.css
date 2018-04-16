@@ -77,6 +77,13 @@ nav {
 }
 
 /**
+ * Days modal
+ */
+#modal-days {
+    overflow-y:scroll;
+}
+
+/**
  * Days in plans
  */
 #modal-days .card-body ul {

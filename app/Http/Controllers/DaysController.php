@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Day;
+use App\Email;
 
 class DaysController extends Controller
 {
@@ -46,7 +47,12 @@ class DaysController extends Controller
         }
 
         // Data is valid
-        Day::destroy($request->input('id'));
+        $day = Day::find($request->input('id'));
+
+        // Queue mail
+        Email::createPlanUpdated($day->plan->id);
+
+        $day->delete();
 
         return response()->json([], 200);
     }
@@ -73,6 +79,9 @@ class DaysController extends Controller
             'name'      => $request->input('name'),
             'plan_id'   => $request->input('plan_id')
         ]);
+
+        // Queue mail
+        Email::createPlanUpdated($day->plan->id);
 
         return response()->json($day, 201);
     }

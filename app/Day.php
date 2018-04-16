@@ -26,4 +26,12 @@ class Day extends Model
     {
         return $this->belongsToMany(Exercise::class);
     }
+
+    /**
+     * Plans the day is in
+     */
+    function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
 }

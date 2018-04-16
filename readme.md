@@ -4,11 +4,10 @@
 1. [General dsescription](#generalDescription)
 2. [Installation](#installation)
 3. [Web interface](#webInterface)
-   - [Users](#webInterfaceUsers)
-   - [Topics](#webInterfaceTopics)
-   - [Posts](#webInterfacePosts)
-   - [Search engine](#webInterfaceSearchEngine)
-   - [Online demo](#webInterfaceOnlineDemo)
+    - [Plans](#webInterfacePlans)
+    - [Users](#webInterfaceUsers)
+    - [Online demo](#webInterfaceOnlineDemo)
+4. [Mailing](#mailing)
 
 <a name="generalDescription"></a>
 ## 1. General description
@@ -45,3 +44,12 @@ Users can be created in the **Users** page and assign plans to them.
 <a name="webInterfaceOnlineDemo"></a>
 ### Online demo
 An online demo can be found at http://35.163.165.1:5000/
+
+<a name="mailing"></a>
+## 4. Mailing
+The system generates emails in two different cases:
+- A plan is modified (all users with that plan are notified)
+- A plan is assigned to a user (the user is notified)
+
+To prevent sending many emails to the same user within a day, and also to send emails in a responsable, way a queue is used to save emails and send them daily using a cron job.
+

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use App\Email;
 use App\Plan;
 use App\User;
 
@@ -120,6 +121,7 @@ class UsersController extends Controller
         // Data is valid
         $user = User::find($request->input('user_id'));
         $user->plans()->sync($request->input('plans'));
+        Email::create($user->id, 1);
 
         return response()->json([], 200);
     }

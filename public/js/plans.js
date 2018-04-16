@@ -160,6 +160,7 @@ $(function() {
     $('#modal-days-list').on('click', '.btn-exercises-add', function() {
         day_id = $(this).data('id');
 
+        $('#modal-days').modal('hide');
         $('#modal-exercises').modal('show');
     });
 
@@ -175,8 +176,9 @@ $(function() {
             dataType: 'json',
             data: 'day_id=' + day_id + '&' + $(this).serialize()
         }).always(function() {
-            loadPlanDays();
             $('#modal-exercises').modal('hide');
+            loadPlanDays();
+            $('#modal-days').modal('show');
             hideLoader();
         });
     });
