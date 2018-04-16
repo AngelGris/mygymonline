@@ -198,6 +198,19 @@ $(function() {
             loadPlanDays();
         });
     });
+
+    // Expand/collapse days
+    $('#modal-days-list').on('click', '.btn-toggle', function() {
+        $(this).parent().parent().find('.card-body').toggle();
+        var span = $(this).find('span').first();
+        if (span.hasClass('octicon-triangle-down')) {
+            span.removeClass('octicon-triangle-down');
+            span.addClass('octicon-triangle-up')
+        } else {
+            span.removeClass('octicon-triangle-up');
+            span.addClass('octicon-triangle-down')
+        }
+    });
 });
 
 function loadPlanDays() {
@@ -232,8 +245,17 @@ function dayCardTemplate(day) {
     output += '<div class="card-header">' + day.name + ' ';
     output += '<button class="btn btn-exercises-add" data-toggle="tooltip" title="Add exercises" data-id="' + day.id + '"><span class="octicon octicon-plus"></span></button> ';
     output += '<button class="btn btn-day-delete" data-toggle="tooltip" title="Delete day" data-id="' + day.id + '"><span class="octicon octicon-trashcan"></span></button>';
+    if (day.id == day_id) {
+        output += '<button class="btn btn-toggle"><span class="octicon octicon-triangle-up"></span></button>';
+    } else {
+        output += '<button class="btn btn-toggle"><span class="octicon octicon-triangle-down"></span></button>';
+    }
     output += '</div>';
-    output += '<div class="card-body">';
+    if (day.id == day_id) {
+        output += '<div class="card-body">';
+    } else {
+        output += '<div class="card-body" style="display:none;">';
+    }
     output += '<ul>';
     day.exercises.forEach(function(exercise) {
         output += '<li>' + exercise.name + ' <button class="btn btn-sm btn-exercise-remove" data-exercise="' + exercise.id + '" data-day="' + day.id + '"><span class="octicon octicon-trashcan"></span></button></li>';
