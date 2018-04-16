@@ -20,10 +20,10 @@
 <div class="row col-sm-12 col-md-6">
     @forelse($users as $user)
     <div class="row zebra col-sm-12">
-        <div class="col-sm-6">{{ $user->full_name }}</div>
-        <div class="col-sm-2" style="text-align:center;"><button data-toggle="tooltip" title="Edit" class="btn user-edit" data-id="{{ $user->id }}" data-first-name="{{ $user->first_name }}" data-last-name="{{ $user->last_name }}" data-email="{{ $user->email }}" data-birthdate="{{ $user->birthdate->format('d/m/Y') }}" data-height="{{ $user->height }}" data-weigth="{{ $user->weigth }}"><span class="octicon octicon-pencil"></span></button></div>
-        <div class="col-sm-2" style="text-align:center;"><button data-toggle="tooltip" title="Plans" class="btn user-plans" data-id="{{ $user->id }}"><span class="octicon octicon-repo"></span></button></div>
-        <div class="col-sm-2" style="text-align:center;"><button data-toggle="tooltip" title="Delete" class="btn user-delete" data-id="{{ $user->id }}"><span class="octicon octicon-trashcan"></span></a></div>
+        <div class="col-12 col-sm-6">{{ $user->full_name }}</div>
+        <div class="col-4 col-sm-2" style="text-align:center;"><button data-toggle="tooltip" title="Edit" class="btn user-edit" data-id="{{ $user->id }}" data-first-name="{{ $user->first_name }}" data-last-name="{{ $user->last_name }}" data-email="{{ $user->email }}" data-birthdate="{{ $user->birthdate->format('d/m/Y') }}" data-height="{{ $user->height }}" data-weigth="{{ $user->weigth }}"><span class="octicon octicon-pencil"></span></button></div>
+        <div class="col-4 col-sm-2" style="text-align:center;"><button data-toggle="tooltip" title="Plans" class="btn user-plans" data-id="{{ $user->id }}"><span class="octicon octicon-repo"></span></button></div>
+        <div class="col-4 col-sm-2" style="text-align:center;"><button data-toggle="tooltip" title="Delete" class="btn user-delete" data-id="{{ $user->id }}"><span class="octicon octicon-trashcan"></span></a></div>
     </div>
     @empty
     <h2>No users found</h2>

@@ -15,10 +15,10 @@
 <div class="row col-sm-12 col-md-6">
     @forelse($plans as $plan)
     <div class="row zebra col-sm-12">
-        <div class="col-sm-6">{{ $plan->name }}</div>
-        <div class="col-sm-2" style="text-align:center;"><button data-toggle="tooltip" title="Edit" class="btn plan-edit" data-id="{{ $plan->id }}" data-name="{{ $plan->name }}"><span class="octicon octicon-pencil"></span></button></div>
-        <div class="col-sm-2" style="text-align:center;"><button data-toggle="tooltip" title="Days" class="btn plan-days" data-id="{{ $plan->id }}""><span class="octicon octicon-calendar"></span></button></div>
-        <div class="col-sm-2" style="text-align:center;"><button data-toggle="tooltip" title="Delete" class="btn plan-delete" data-id="{{ $plan->id }}"><span class="octicon octicon-trashcan"></span></a></div>
+        <div class="col-12 col-sm-6">{{ $plan->name }}</div>
+        <div class="col-4 col-sm-2" style="text-align:center;"><button data-toggle="tooltip" title="Edit" class="btn plan-edit" data-id="{{ $plan->id }}" data-name="{{ $plan->name }}"><span class="octicon octicon-pencil"></span></button></div>
+        <div class="col-4 col-sm-2" style="text-align:center;"><button data-toggle="tooltip" title="Days" class="btn plan-days" data-id="{{ $plan->id }}""><span class="octicon octicon-calendar"></span></button></div>
+        <div class="col-4 col-sm-2" style="text-align:center;"><button data-toggle="tooltip" title="Delete" class="btn plan-delete" data-id="{{ $plan->id }}"><span class="octicon octicon-trashcan"></span></a></div>
     </div>
     @empty
     <h2>No plans found</h2>
